@@ -16,12 +16,12 @@ services:
             - /var/lib/zabbix/mibs:/var/lib/zabbix/mibs:ro
         restart: always
         environment:
-            - ZBX_HOSTNAME=zabbix-proxy-sqlite3
-            - ZBX_SERVER_HOST=zabbix.vanohaker.online
+            - ZBX_HOSTNAME=zabbix-proxy-sqlite3-ln
+            - ZBX_SERVER_HOST=192.168.100.210
             - ZBX_SERVER_PORT=10051
             - ZBX_DEBUGLEVEL=1
-            - ZBX_PROXYMODE=1 # 0 - active proxy and 1 - passive proxy.
-            - ZBX_CONFIGFREQUENCY=3600
+            - ZBX_PROXYMODE=0 # 0 - active proxy and 1 - passive proxy.
+            - ZBX_CONFIGFREQUENCY=300
     agent:
         image: zabbix/zabbix-agent:alpine-latest
         ports:
